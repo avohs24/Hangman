@@ -31,24 +31,39 @@ document.onkeyup = function(event) {
 	var userGuess = event.key; 
 
 		for (var i = 0; i < words.length; i++){
-			if (words[i].charAt([i] === userGuess)) {
-				return userGuess;
+			var guessLetter = words[i].charAt(i);
+			if (guessLetter != userGuess) {
+				remainingGuesses-1;
+				var UsedLettersDiv =  document.getElementById("letters");
+				var newDiv = document.createElement("div");
+				newDiv.innerHTML = userGuess[i];
+				UsedLettersDiv.appendChild(newDiv);
+			}
+			else if (guessLetter === userGuess) {
+				var rightAnswer = document.getElementById("guessLine");
+				var answerDiv = guessLine;
+				answerDiv.innerHTML = userGuess[i];
+				rightAnswer.appendChild(answerDiv);
+				//ADD IN PLACEMENT OF CORRECT LETTER IN OPEN SPACE
+				
 			}
 
-	console.log(userGuess);
 
 
-}
+
+		}
+	}
 
 
-var targetDiv = document.getElementById("guessLine");
+
+/*var targetDiv = document.getElementById("guessLine");
 
 
 	if(document.onkeyup == words[i]) {
 			document.getElementById("guessLine").innerHTML = rightLetter;
 
 		}
-}
+}*/
 
 /*var wins = 0;
 var guesses = 8;
