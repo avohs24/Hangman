@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<html lang="en">
 <html>
 <head>
 	<!--placeholder for links to css and js-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/css/style.css">
 
 	<title>Hangman-Game</title>
 
@@ -10,35 +13,44 @@
 </head>
 <body>	
 
-	<h1>Hangman</h1>
-	
-
-		<div id="GetStarted">PRESS ANY KEY TO GET STARTED!</div>
-
-		<br>
-
-
-
-		<br>
-		<div id="wins">WINS</div> 
-
-		<br>
-		<br>
-		<div id="current">CURRENT WORD</div>
-
-		<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+		<div class="jumbotron">
+			<h1>Hangman</h1>
 		
-			<p id="guessLine"></p>
 
-		<br>
-		<div id="guesses">NUMBER OF GUESSES REMAINING</div>
+			<div id="GetStarted">PRESS ANY KEY TO GET STARTED!</div>
 
-		<br>
-		<br>
-		<div id="letters">LETTERS ALREADY GUESSED</div>
+			<br>
 
-		<br>
-		<br>
+
+
+			<br>
+			<div id="wins">WINS</div> 
+
+			<br>
+			<br>
+			<div id="current">CURRENT WORD</div>
+
+			<br>
+			
+				<div id="guessLine"></div>
+
+			<br>
+			<div id="guesses">
+				<p>NUMBER OF GUESSES REMAINING</p>
+				<div id="remaining-guesses-div"></div>
+			</div>
+			<br>
+			<br>
+			<div id="letters">LETTERS ALREADY GUESSED</div>
+
+			<br>
+			<br>
+		</div>
+	</div>
+</div>
 <!-- placeholder for winning image
  -->
 

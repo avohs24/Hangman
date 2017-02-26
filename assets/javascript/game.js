@@ -4,14 +4,14 @@ var words = ["street", "dogs", "cats"]
 
 //GENERATING A RANDOM WORD FROM ABOVE
 var random = Math.floor((Math.random()*(words.length)));
-var randomWord = words[random];
-var spaces = new Array(randomWord.length);
+var randomWord = words[random].split("");
+var spaces = [];
 var wins = 0;
 var remainingGuesses = 8;
 
 
-for (var i = 0; i < spaces.length; i++) {
-	spaces[i] = "_    ";
+for (var i = 0; i < randomWord.length; i++) {
+	spaces[i] = "_ ";
 }
 
 function printSpaces(){
@@ -23,36 +23,60 @@ function printSpaces(){
 }
 
 printSpaces();
-console.log(randomWord);
+console.log(randomWord, spaces);
 
 
 //DETERMINING USERS GUESS AND IF IT IS IN THE STRING
 document.onkeyup = function(event) {
 	var userGuess = event.key; 
+	var match = false;
+	var guessLetter;
 
-		for (var i = 0; i < words.length; i++){
-			var guessLetter = words[i].charAt(i);
-			if (guessLetter != userGuess) {
-				remainingGuesses-1;
-				var UsedLettersDiv =  document.getElementById("letters");
-				var newDiv = document.createElement("div");
-				newDiv.innerHTML = userGuess[i];
-				UsedLettersDiv.appendChild(newDiv);
+		//FOR LOOP CHECKING IF USERS GUESS IS THE SAME AS 	
+		for (var i = 0; i < spaces.length; i++){
+			guessLetter = randomWord[i];
+			if (userGuess == guessLetter) {
+				match = true;
+				spaces[i] = userGuess;
 			}
-			else if (guessLetter === userGuess) {
+		};
+
+		if (match){
 				var rightAnswer = document.getElementById("guessLine");
-				var answerDiv = guessLine;
-				answerDiv.innerHTML = userGuess[i];
-				rightAnswer.appendChild(answerDiv);
-				//ADD IN PLACEMENT OF CORRECT LETTER IN OPEN SPACE
-				
+				rightAnswer.innerHTML = spaces.join("");
+			} else  {
+				remainingGuesses = remainingGuesses-1;
+				var UsedLettersDiv = document.getElementById("letters");
+				var newDiv = document.createElement("div");
+				newDiv.innerHTML = userGuess;
+				UsedLettersDiv.appendChild(newDiv);
+
+				var RemaingingGuessesDiv = document.getElementById("remaining-guesses-div");
+				var guessesDiv = document.createElement("div");
+				RemaingingGuessesDiv.innerHTML = remainingGuesses; 
 			}
-
-
-
-
-		}
+		
+		
 	}
+			//  if (match) {
+			// 	var rightAnswer = document.getElementById("guessLine");
+				
+			// 	rightAnswer.appendChild(userGuess);
+			// 	//ADD IN PLACEMENT OF CORRECT LETTER IN OPEN SPACE
+			// }
+
+
+		
+//console.log(match);
+		
+
+
+
+
+
+
+		// }
+	
 
 
 
