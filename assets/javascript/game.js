@@ -1,6 +1,6 @@
 
 //POSSIBLE WORDS
-var words = ["street", "dogs", "cats"]
+var words = ["toyota", "ferrari", "ford", "porsche", "mercedes", "chevrolet"]
 
 //GENERATING A RANDOM WORD FROM ABOVE
 var random = Math.floor((Math.random()*(words.length)));
@@ -8,6 +8,8 @@ var randomWord = words[random].split("");
 var spaces = [];
 var wins = 0;
 var remainingGuesses = 8;
+var honk = new Audio("../sounds/HornHonk.mp3");
+var engineRev = new Audio("../sounds/EngineRev.wav")
 
 
 for (var i = 0; i < randomWord.length; i++) {
@@ -44,6 +46,7 @@ document.onkeyup = function(event) {
 		if (match){
 				var rightAnswer = document.getElementById("guessLine");
 				rightAnswer.innerHTML = spaces.join("");
+				return engineRev;
 			} else  {
 				remainingGuesses = remainingGuesses-1;
 				var UsedLettersDiv = document.getElementById("letters");
@@ -54,82 +57,24 @@ document.onkeyup = function(event) {
 				var RemaingingGuessesDiv = document.getElementById("remaining-guesses-div");
 				var guessesDiv = document.createElement("div");
 				RemaingingGuessesDiv.innerHTML = remainingGuesses; 
+				return honk;
 			}
-		
-		
-	}
-			//  if (match) {
-			// 	var rightAnswer = document.getElementById("guessLine");
-				
-			// 	rightAnswer.appendChild(userGuess);
-			// 	//ADD IN PLACEMENT OF CORRECT LETTER IN OPEN SPACE
-			// }
 
+}
+		function roundComplete(){
 
-		
-//console.log(match);
-		
-
-
-
-
-
-
-		// }
-	
-
-
-
-/*var targetDiv = document.getElementById("guessLine");
-
-
-	if(document.onkeyup == words[i]) {
-			document.getElementById("guessLine").innerHTML = rightLetter;
-
+			if (randomWord.length == randomWord[i].length) {
+			wins = wins++;
+			alert('You win!')	
+			var WinsCount = document.getElementById("wins");
+			var newWinsDiv = document.createElement("div");
+			WinsCount.innerHTML = wins;
+		} else if (remainingGuesses == 0) {
+			alert('You Lose!');
 		}
-}*/
-
-/*var wins = 0;
-var guesses = 8;
-
-
-document.onkeyup = function(guess) {
-	var userGuess = event.key; 
-
-	if(userGuess = wordLetter) {
-		document.write(wordLetter);
-	}
-}*/
-
-
-
-
-// var rate = new Array(randomWord.length);
-// var l = 0;
-
-// for (var i=0; i < rate.length; i++) {
-// 	rate[i] = "__";
-// }
-
-// function printRate(){
-// 	for (var i = 0; i < rate.length; i++){
-// 		var guessLine = document.getElementById("guessLine");
-// 		var k = document.createTextNode(rate[i]);
-// 			guessLine.appendChild(k);
-// 	}
-// }
-
-// printRate();
-
-
-
-
-
-
-
-
-
-
-
+	
+	roundComplete();		
+}
+	
 
 

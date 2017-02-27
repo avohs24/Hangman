@@ -1,7 +1,61 @@
+
+body {
+	background-image: url(../images/carpic.jpg);
+}
+
 .jumbotron {
 	text-align: center;
+	opacity: 0.5;
+	
+}
+
+h1 {
+	font-family: 'Alfa Slab One', cursive;
 }
 
 .jumbotron h1 {
-	color: #f10a25;
+	color: #162574;	
+	font-weight: bolder;
+	font-size: 70px;
+	float: left;
+}
+
+#current {
+	font-size: 30px;
+	font-family: 'Alfa Slab One', cursive;
+	color: #162574;
+}
+#guessLine {
+	font-size: 30px;
+	font-family: 'Alfa Slab One', cursive;
+	font-weight: bolder;
+}
+
+#letters {
+	font-size: 
+}
+
+#well #well-lg {
+	float: left;
+}
+
+#guesses {
+	font-family: 'Alfa Slab One', cursive;
+	color: #162574;
+}
+
+#letters{
+	font-family: 'Alfa Slab One', cursive;
+	color: #162574;
+}
+
+#wins {
+	font-family: 'Alfa Slab One', cursive;
+	color: #162574;	
+}
+
+#getStarted {
+		font-family: 'Alfa Slab One', cursive;
+		color: #162574;
+		/*font-weight: lighter;*/
 }
