@@ -30,11 +30,11 @@ console.log(randomWord, spaces);
 
 //DETERMINING USERS GUESS AND IF IT IS IN THE STRING
 document.onkeyup = function(event) {
-	var userGuess = event.key; 
+	var userGuess = event.key;
 	var match = false;
 	var guessLetter;
 
-		//FOR LOOP CHECKING IF USERS GUESS IS THE SAME AS 	
+		//FOR LOOP CHECKING IF USERS GUESS IS THE SAME AS
 		for (var i = 0; i < spaces.length; i++){
 			guessLetter = randomWord[i];
 			if (userGuess == guessLetter) {
@@ -46,7 +46,7 @@ document.onkeyup = function(event) {
 		if (match){
 				var rightAnswer = document.getElementById("guessLine");
 				rightAnswer.innerHTML = spaces.join("");
-				return engineRev;
+				engineRev.play();
 			} else  {
 				remainingGuesses = remainingGuesses-1;
 				var UsedLettersDiv = document.getElementById("letters");
@@ -56,8 +56,8 @@ document.onkeyup = function(event) {
 
 				var RemaingingGuessesDiv = document.getElementById("remaining-guesses-div");
 				var guessesDiv = document.createElement("div");
-				RemaingingGuessesDiv.innerHTML = remainingGuesses; 
-				return honk;
+				RemaingingGuessesDiv.innerHTML = remainingGuesses;
+				honk.play();
 			}
 
 }
@@ -65,16 +65,13 @@ document.onkeyup = function(event) {
 
 			if (randomWord.length == randomWord[i].length) {
 			wins = wins++;
-			alert('You win!')	
+			alert('You win!')
 			var WinsCount = document.getElementById("wins");
 			var newWinsDiv = document.createElement("div");
 			WinsCount.innerHTML = wins;
 		} else if (remainingGuesses == 0) {
 			alert('You Lose!');
 		}
-	
-	roundComplete();		
+
+	roundComplete();
 }
-	
-
-
